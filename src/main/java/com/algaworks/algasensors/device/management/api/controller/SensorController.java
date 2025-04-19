@@ -32,7 +32,7 @@ public class SensorController {
     public SensorOutput getOne(@PathVariable TSID sensorId) {
         Sensor sensor = this.repository.findById(new SensorId(sensorId))
                             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return convertToModel(sensor);
+        return this.convertToModel(sensor);
     }
 
     @PostMapping
@@ -50,7 +50,7 @@ public class SensorController {
 
         sensor = this.repository.saveAndFlush(sensor);
 
-        return convertToModel(sensor);
+        return this.convertToModel(sensor);
     }
 
     @PutMapping("/{sensorId}")
@@ -68,7 +68,7 @@ public class SensorController {
 
         sensor = this.repository.save(sensor);
 
-        return convertToModel(sensor);
+        return this.convertToModel(sensor);
     }
 
     @DeleteMapping("/{sensorId}")
