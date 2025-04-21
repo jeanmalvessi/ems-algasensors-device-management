@@ -1,1 +1,2 @@
-# ems-algasensors-device-management
+# device-management
+See full description on main project.
